@@ -36,7 +36,9 @@ jobs:
           
   ui-firefox-tests:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
+    container:
+      image: cypress/browsers:node14.17.0-chrome91-ff89
+      options: --user 1001
     strategy:
       fail-fast: false
       matrix:
@@ -50,7 +52,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
-          install-command: npm install
+          install-command: yarn install
           wait-on: ${{ secrets.BASE_URL }}
           wait-on-timeout: 120
           browser: firefox
