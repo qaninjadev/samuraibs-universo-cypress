@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
+        containers: [1]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -25,7 +25,7 @@ jobs:
           wait-on-timeout: 120
           browser: chrome
           record: true
-          parallel: true
+          parallel: false
           group: 'UI - Chrome'
           spec: cypress/integration/*
         env:
@@ -39,6 +39,7 @@ jobs:
     container:
       image: cypress/browsers:node14.17.0-chrome91-ff89
       options: --user 1001
+    needs: ui-chrome-tests
     strategy:
       fail-fast: false
       matrix:
@@ -57,7 +58,7 @@ jobs:
           wait-on-timeout: 120
           browser: firefox
           record: true
-          parallel: true
+          parallel: false
           group: 'UI - Firefox'
           spec: cypress/integration/*
         env:
