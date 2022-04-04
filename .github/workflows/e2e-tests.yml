@@ -60,6 +60,7 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox'
+          ci-build-id: ff - ${{ github.run_id }}
           spec: cypress/integration/*
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
