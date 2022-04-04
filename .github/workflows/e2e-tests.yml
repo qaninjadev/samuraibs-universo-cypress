@@ -1,14 +1,6 @@
 name: Cypress Tests with Install Job and UI Chrome Job x 5
 
-on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-      tags:
-        description: 'Regression Tests'
+on: [workflow_dispatch]
 
 jobs:
 
