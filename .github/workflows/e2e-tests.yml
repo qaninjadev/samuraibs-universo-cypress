@@ -1,6 +1,6 @@
 name: Cypress Tests with Install Job and UI Chrome Job x 5
 
-on: [workflow_dispatch]
+on: [push]
 
 jobs:
 
