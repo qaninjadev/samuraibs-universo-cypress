@@ -82,7 +82,7 @@ class DashPage {
     }
 
     appointmentShouldBe(customer, hour) {
-        cy.contains('div', customer.name, { timeout: 10000 })
+        cy.contains('div', customer.name)
             .should('be.visible')
             .parent()
             .contains(el.boxHour, hour)
