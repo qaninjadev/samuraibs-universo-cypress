@@ -1,7 +1,7 @@
 {
     "baseUrl": "https://samuraibs-web.herokuapp.com",
     "apiServer": "https://samuraibs-api.herokuapp.com",
-    "projectId": "iwguug",
+    "projectId": "mhng46",
     "viewportWidth": 1440,
     "viewportHeight": 900,
     "defaultCommandTimeout": 30000,
