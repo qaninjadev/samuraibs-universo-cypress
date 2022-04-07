@@ -24,6 +24,10 @@ describe('login', function () {
 
             dashPage.header.userLoggedIn(user.name)
         })
+        
+        after(function() {
+            cy.clearLocalStorage()
+        })
     })
 
     context('quando o usuário é bom mas a senha está incorreta', function () {
