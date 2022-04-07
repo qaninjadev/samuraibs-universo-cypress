@@ -26,7 +26,7 @@ jobs:
           wait-on: ${{ secrets.BASE_URL }}
           wait-on-timeout: 120
           browser: chrome
-          record: true
+          record: false
           parallel: true
           group: 'UI - Chrome'
           spec: cypress/integration/*
@@ -41,11 +41,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
-          install-command: yarn install
-          wait-on: ${{ secrets.BASE_URL }}
-          wait-on-timeout: 120
           browser: firefox
-          record: true
+          record: false
           parallel: true
           group: 'UI - Firefox'
           spec: cypress/integration/*
