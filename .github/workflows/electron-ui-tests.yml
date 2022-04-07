@@ -50,7 +50,7 @@ jobs:
 
       - name: Upload Screenshots
         uses: actions/upload-artifact@v2.3.1
-        if: always()
+        if: failure()
         with:
           name: Electron Screenshots
           path: cypress/screenshots
