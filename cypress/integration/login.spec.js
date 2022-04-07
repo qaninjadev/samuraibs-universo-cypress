@@ -27,6 +27,7 @@ describe('login', function () {
         
         after(function() {
             cy.clearLocalStorage().should((ls) => {
+                cy.reload(true)
                 expect(ls.getItem('@Samurai:token')).to.be.null
                 expect(ls.getItem('@Samurai:user')).to.be.null
             })
