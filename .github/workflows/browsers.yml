@@ -17,10 +17,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set Timezone
-        uses: ./
+        
+      - name: 'Set Timezone'
+        uses: zcong1993/setup-timezone@v1.1.2
         with:
-          timezoneLinux: "America/Sao_Paulo"
+          timezone: "America/Sao_Paulo"
       
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v2
