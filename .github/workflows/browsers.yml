@@ -17,6 +17,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
+      - name: 'Time Zone'
+        uses: szenius/set-timezone@v1.0
+        with:
+          timezoneLinux: "America/Sao_Paulo"
       
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v2
