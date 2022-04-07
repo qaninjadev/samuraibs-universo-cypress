@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       specs:
-        description: 'Spec file'
-        default: cypress/integration/dash.spec.js
-
+        description: 'Run all or unique spec'
+        default: cypress/integration/*
+        
 jobs:
         
   ui-tests-chrome:
@@ -40,3 +40,17 @@ jobs:
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Videos
+        uses: actions/upload-artifact@v2.3.1
+        if: always()
+        with:
+          name: Chrome Videos
+          path: cypress/videos
+
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v2.3.1
+        if: failure()
+        with:
+          name: Chrome Screenshots
+          path: cypress/screenshots
