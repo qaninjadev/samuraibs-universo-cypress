@@ -18,13 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: 'Request to Awake API'
-        uses: fjogeleit/http-request-action@v1.9.1
-        with:
-          url: 'https://samuraibs-api-papito.herokuapp.com'
-          method: 'GET'
-          timeout: 120000
-      
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v2
         with:
