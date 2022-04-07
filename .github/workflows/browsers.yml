@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
         
-  ui-tests:
+  ui-tests-chrome:
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node14.17.0-chrome91-ff89
@@ -36,7 +36,21 @@ jobs:
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
+  ui-tests-firefox:
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node14.17.0-chrome91-ff89
+      options: --user 1001
+    strategy:
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [1]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: 'UI Tests - Firefox'
         uses: cypress-io/github-action@v2
         with:
