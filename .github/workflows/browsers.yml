@@ -21,7 +21,7 @@ jobs:
       - name: 'Request to Awake API'
         uses: fjogeleit/http-request-action@v1.9.1
         with:
-          url: 'https://samuraibs-api-papito.com.br'
+          url: 'https://samuraibs-api-papito.herokuapp.com'
           method: 'GET'
           timeout: 120000
       
