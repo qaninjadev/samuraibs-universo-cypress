@@ -1,4 +1,4 @@
-name: Firefox UI Tests
+name: Electron UI Tests
 
 on:
   workflow_dispatch:
@@ -9,11 +9,10 @@ on:
 
 jobs:
  
- ui-tests-firefox:
+ ui-tests-electron:
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node14.17.0-chrome91-ff89
-      options: --user 1001
     strategy:
       fail-fast: false
       matrix:
@@ -23,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: 'UI Tests - Firefox'
+      - name: 'UI Tests - Electron'
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
@@ -33,7 +32,7 @@ jobs:
           browser: firefox
           record: true
           parallel: true
-          group: 'UI - Firefox'
+          group: 'UI - Electron'
           spec: ${{ github.event.inputs.specs }}
         env:
           TZ: America/Sao_Paulo
@@ -46,12 +45,12 @@ jobs:
         uses: actions/upload-artifact@v2.3.1
         if: always()
         with:
-          name: Firefox Videos
+          name: Electron Videos
           path: cypress/videos
 
       - name: Upload Screenshots
         uses: actions/upload-artifact@v2.3.1
         if: always()
         with:
-          name: Firefox Screenshots
+          name: Electron Screenshots
           path: cypress/screenshots
