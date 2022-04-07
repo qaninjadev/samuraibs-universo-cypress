@@ -5,7 +5,7 @@ on:
     inputs:
       specs:
         description: 'Spec file'
-        default: cypress/integration/dash.spec.js
+        default: cypress/integration/*
 
 jobs:
  
