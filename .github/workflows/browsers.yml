@@ -38,6 +38,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   ui-tests-firefox:
+    needs: ui-tests-chrome
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node14.17.0-chrome91-ff89
