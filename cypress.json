@@ -5,6 +5,7 @@
     "viewportWidth": 1440,
     "viewportHeight": 900,
     "defaultCommandTimeout": 14000,
+    "videoCompression": 51,
     "dbConfig": {
         "host": "jelani.db.elephantsql.com",
         "user": "qgbbfjna",
