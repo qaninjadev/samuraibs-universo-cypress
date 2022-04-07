@@ -27,6 +27,9 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           # we have already installed all dependencies above
+          install-command: yarn install
+          wait-on: ${{ secrets.BASE_URL }}
+          wait-on-timeout: 120
           browser: firefox
           record: true
           parallel: true
