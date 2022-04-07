@@ -1,4 +1,4 @@
-name: Multbrowser Testing
+name: Chrome UI Tests
 
 on: [push]
 
@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node14.17.0-chrome91-ff89
-      options: --user 1001
     strategy:
       fail-fast: false
       matrix:
@@ -29,37 +28,6 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Chrome'
-          spec: cypress/integration/dash.spec.js
-        env:
-          TZ: America/Sao_Paulo
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # Recommended: pass the GitHub token lets this action correctly
-          # determine the unique run id necessary to re-run the checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  ui-tests-firefox:
-    needs: ui-tests-chrome
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node14.17.0-chrome91-ff89
-      options: --user 1001
-    strategy:
-      fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: 'UI Tests - Firefox'
-        uses: cypress-io/github-action@v2
-        with:
-          # we have already installed all dependencies above
-          browser: firefox
-          record: true
-          parallel: true
-          group: 'UI - Firefox'
           spec: cypress/integration/dash.spec.js
         env:
           TZ: America/Sao_Paulo
