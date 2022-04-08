@@ -4,16 +4,12 @@
     "projectId": "mhng46",
     "viewportWidth": 1440,
     "viewportHeight": 900,
-    "defaultCommandTimeout": 14000,
+    "defaultCommandTimeout": 30000,
     "dbConfig": {
         "host": "jelani.db.elephantsql.com",
         "user": "qgbbfjna",
         "password": "HylJM7Ei4Um3GKsAS3pP3v72otlG0I-C",
         "database": "qgbbfjna",
         "port": 5432
-    },
-    "retries": {
-        "runMode": 2,
-        "openMode": 0
     }
 }
