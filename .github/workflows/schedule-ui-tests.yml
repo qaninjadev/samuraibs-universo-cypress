@@ -57,4 +57,3 @@ jobs:
         with:
           name: Firefox Screenshots
           path: cypress/screenshots
-firefox-ui-tests
