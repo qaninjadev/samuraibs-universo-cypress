@@ -1,11 +1,8 @@
-name: Firefox UI Tests
+name: Schedule UI Tests
 
 on:
-  workflow_dispatch:
-    inputs:
-      specs:
-        description: 'Spec file'
-        default: cypress/integration/*
+  schedule:
+    - cron: "*/20 * * * *"
 
 jobs:
  
