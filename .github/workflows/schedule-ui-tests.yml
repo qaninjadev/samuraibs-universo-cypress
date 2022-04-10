@@ -1,8 +1,10 @@
 name: Schedule UI Tests
 
-on:
-  schedule:
-    - cron: "*/45 * * * *"
+on: [push]
+
+# on:
+#   schedule:
+#     - cron: "*/45 * * * *"
 
 jobs:
  
